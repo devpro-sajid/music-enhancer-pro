@@ -32,58 +32,58 @@ const Footer = () => {
                                 <img className='md:w-10 w-8 mr-3' src="https://i.ibb.co/j3rj1J3/music-education.png" alt="" />
                                 Music <span className='text-prime ml-2'> Enhancer</span>
                             </h6>
-                            <p>
-                                Best place to find relevant chefs and recipes. All the chefs here are certified and well experienced from different countries. Get an authentic french food journey.
+                            <p className='sec-desc'>
+                            Join our Music Academy and Ignite Your Love for Music - Elevate Your Skills with World-Class Instruction on Our Renowned Music School.
                             </p>
                         </div>
                         {/* <!-- Products section --> */}
-                        <div className="">
+                        <div className="sec-desc">
                             <h6
                                 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
-                                Popular Chefs
+                                Quick Links
                             </h6>
                             <p className="mb-4">
-                                <Link to="/chef-recipes/1" className="text-neutral-600 dark:text-neutral-200"
-                                >John Smith</Link>
+                                <Link className="text-white"
+                                >About Us</Link>
                             </p>
                             <p className="mb-4">
-                                <Link to="/chef-recipes/3" className="text-neutral-600 dark:text-neutral-200"
-                                >Antonio Rodriguez</Link>
+                                <Link className="text-white"
+                                >Services</Link>
                             </p>
                             <p className="mb-4">
-                                <Link to="/chef-recipes/5" className="text-neutral-600 dark:text-neutral-200"
-                                >David Kim</Link>
+                                <Link className="text-white"
+                                >Career</Link>
                             </p>
                             <p>
-                                <Link to="/chef-recipes/6" className="text-neutral-600 dark:text-neutral-200"
-                                >Rachel Patel</Link>
+                                <Link className="text-white"
+                                >Contact</Link>
                             </p>
                         </div>
                         {/* <!-- Useful links section --> */}
-                        <div className="">
+                        <div className="sec-desc">
                             <h6
                                 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
                                 Useful links
                             </h6>
                             <p className="mb-4">
-                                <Link to="/" className="text-neutral-600 dark:text-neutral-200"
+                                <Link to="/" className="text-white"
                                 >Home</Link>
                             </p>
                             <p className="mb-4">
-                                <Link to="/blog" className="text-neutral-600 dark:text-neutral-200"
-                                >Blog</Link>
+                                <Link to="/blog" className="text-white"
+                                >Disclaimer</Link>
                             </p>
                             <p className="mb-4">
-                                <Link to="/" className="text-neutral-600 dark:text-neutral-200"
-                                >Privacy Policy</Link>
+                                <Link to="/" className="text-white"
+                                >Support</Link>
                             </p>
                             <p>
-                                <Link to="/" className="text-neutral-600 dark:text-neutral-200"
-                                >Terms Conditions</Link>
+                                <Link to="/" className="text-white"
+                                >Faq</Link>
                             </p>
                         </div>
                         {/* <!-- Contact section --> */}
-                        <div className=''>
+                        <div className=' sec-desc'>
                             <h6
                                 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
                                 Contact
@@ -99,7 +99,7 @@ const Footer = () => {
                                     <path
                                         d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
                                 </svg>
-                                Paris 75008,France
+                                New York,USA
                             </p>
                             <p className="mb-4 flex items-center justify-center md:justify-start">
                                 <svg
@@ -112,7 +112,7 @@ const Footer = () => {
                                     <path
                                         d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                                 </svg>
-                                info@frenchfood.com
+                                info@musicenhancer.com
                             </p>
                             <p className="mb-4 flex items-center justify-center md:justify-start">
                                 <svg
