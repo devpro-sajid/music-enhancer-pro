@@ -3,13 +3,13 @@ import { Fragment, useContext, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react'
 
 import { Link, NavLink } from 'react-router-dom';
-// import { AuthContext } from '../../Contexts/Authprovider';
+import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 
 
 const Navbar = () => {
     // const { user, logOut } = useContext(AuthContext);
-    const user = "null";
+    const {user} = useContext(AuthContext);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const handleLogout = () => {
         // //   logOut()
