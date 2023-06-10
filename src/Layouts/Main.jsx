@@ -1,5 +1,6 @@
 import {Outlet} from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
+import Footer from "../Shared/Navbar/Footer";
 
 
 
@@ -14,6 +15,7 @@ const Main = () => {
             {/* { noHeaderFooter || <NavBar></NavBar>} */}
             <Outlet></Outlet>
             {/* { noHeaderFooter || <Footer></Footer>} */}
+            <Footer></Footer>
         </div>
     );
 };
