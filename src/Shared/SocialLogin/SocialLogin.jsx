@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const SocialLogin = () => {
-
     const { googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -33,6 +32,7 @@ const SocialLogin = () => {
                     },
                     body: JSON.stringify(saveUser)
                 })
+                // axiosSecure.post('/users', saveUser)
                     .then(res => res.json())
                     .then(() => {
                         navigate(from, { replace: true });

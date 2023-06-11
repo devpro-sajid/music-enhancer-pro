@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -7,7 +7,7 @@ import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 // import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
-
+    const [error,setError]=useState('')
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -36,6 +36,18 @@ const Login = () => {
                 navigate(from, { replace: true });
                 form.reset();
             })
+            .catch((error) => {
+            
+                if(error.message.includes('wrong-password')){
+                    setError('Wrong Password! Please Try Again');
+                }
+                else if(error.message.includes('auth/user-not-found')){
+                    setError('User not found'); 
+                }
+                else{
+                    setError(error.message); 
+                }
+              });
     }
 
 
@@ -62,6 +74,7 @@ const Login = () => {
                                             <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                                         </svg>
                                 </div>
+                                {error?<p className="text-red-600">{error}</p>:<></>}
                                 <button className="bg-prime rounded-md text-white py-2 hover:scale-105 duration-300">Login</button>
                         </form>
 

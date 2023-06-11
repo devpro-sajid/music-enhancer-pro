@@ -1,10 +1,12 @@
+import BannerBottom from "../BannerBottom/BannerBottom";
 import HeroBanner from "../TopBanner/HeroBanner";
 
 
 const Home = () => {
     return (
         <>
-           <HeroBanner></HeroBanner> 
+           <HeroBanner></HeroBanner>
+           <BannerBottom></BannerBottom> 
         </>
     );
 };

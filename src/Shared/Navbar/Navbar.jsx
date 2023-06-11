@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from 'react';
+import { Fragment, useContext, useEffect, useState } from 'react';
 
 import { Menu, Transition } from '@headlessui/react'
 
@@ -8,26 +8,40 @@ import Swal from 'sweetalert2';
 
 
 const Navbar = () => {
-    // const { user, logOut } = useContext(AuthContext);
-    const {user} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [navColor, setnavColor] = useState("transparent");
+  const listenScrollEvent = () => {
+    window.scrollY > 10 ? setnavColor("#151515") : setnavColor("transparent");
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent);
+    return () => {
+      window.removeEventListener("scroll", listenScrollEvent);
+    };
+  }, []);
+
+
     const handleLogout = () => {
-        // //   logOut()
-        //     .then(() => {
-        //       Swal.fire({
-        //         icon: 'success',
-        //         title: 'You have logged out Successfully',
-        //         showConfirmButton: false,
-        //         timer: 1500
-        //       })
-        //     })
-        //     .catch((error) => {
-        //       // toast.error(error.message);
-        //     })
+          logOut()
+            .then(() => {
+              Swal.fire({
+                icon: 'success',
+                title: 'You have logged out Successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
+            })
+            .catch((error) => {
+              // toast.error(error.message);
+            })
     }
     return (
         <>
-            <div className='sticky top-0 z-10 -mb-[80px] '>
+            <div style={{
+          backgroundColor: navColor,
+          transition: "all 1s"}} className='sticky top-0 z-10 -mb-[80px]'>
                 <div className='px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-7xl md:px-24 lg:px-8'>
                     <div className='relative flex items-center justify-between'>
                         <Link
@@ -51,12 +65,32 @@ const Navbar = () => {
                                         to='/'
                                         aria-label='Home'
                                         title='Home'
-                                        className={({ isActive }) => (isActive ? 'active' : 'default')}
+                                        className={({ isActive }) => (isActive ? 'text-prime' : 'default')}
                                     >
                                         Home
                                     </NavLink>
                                 </li>
                                 <li>
+                                    <NavLink
+                                        to='/classes'
+                                        aria-label='classes'
+                                        title='classes'
+                                        className={({ isActive }) => (isActive ? 'text-prime' : 'default')}
+                                    >
+                                        Classes
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to='/instructors'
+                                        aria-label='Instructors'
+                                        title='Instructors'
+                                        className={({ isActive }) => (isActive ? 'text-prime' : 'default')}
+                                    >
+                                        Instructors
+                                    </NavLink>
+                                </li>
+                                {/* <li>
                                     <NavLink
                                         to='/blog'
                                         aria-label='Blog'
@@ -65,7 +99,7 @@ const Navbar = () => {
                                     >
                                         Blog
                                     </NavLink>
-                                </li>
+                                </li> */}
                             </ul>
                             <Menu as="div" className="relative flex items-center">
                                 <div>
@@ -95,12 +129,12 @@ const Navbar = () => {
                                     <Menu.Items className="absolute right-0 z-10 top-12 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                         <Menu.Item>
 
-                                            <a
-                                                href="#"
+                                            <Link
+                                                to='/dashboard'
                                                 className='block px-4 py-2 text-sm text-gray-700'
                                             >
-                                                {user?.displayName}
-                                            </a>
+                                                Dashboard
+                                            </Link>
                                         </Menu.Item>
                                         <Menu.Item>
 
@@ -143,12 +177,12 @@ const Navbar = () => {
                                     <Menu.Items className="absolute right-0 z-10 top-12 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                         <Menu.Item>
 
-                                            <a
-                                                href="#"
+                                            <Link
+                                                to='/dashboard'
                                                 className='block px-4 py-2 text-sm text-gray-700'
                                             >
-                                                {user?.displayName}
-                                            </a>
+                                                Dashboard
+                                            </Link>
                                         </Menu.Item>
                                         <Menu.Item>
 
@@ -221,29 +255,49 @@ const Navbar = () => {
                                         <nav>
                                             <ul className='space-y-4'>
                                                 <li>
-                                                    <Link
+                                                    <NavLink
                                                         to='/'
                                                         aria-label='Home'
                                                         title='Home'
                                                         className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
                                                     >
                                                         Home
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                                 <li>
-                                                    <Link
+                                                    <NavLink
+                                                        to='/classes'
+                                                        aria-label='Classes'
+                                                        title='Classes'
+                                                        className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                                    >
+                                                        Classes
+                                                    </NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink
+                                                        to='/instructors'
+                                                        aria-label='Instructors'
+                                                        title='instructors'
+                                                        className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                                    >
+                                                        Instructors
+                                                    </NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink
                                                         to='/blog'
                                                         aria-label='Blog'
                                                         title='Blog'
                                                         className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                                                    >
+                                                       >
                                                         Blog
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                                 <li className={user ? 'hidden' : ''}>
-                                                    <Link to='/login'>
+                                                    <NavLink to='/login'>
                                                         <button className='text-white bg-amber-400 px-8 md:py-3 py-2 font-semibold rounded-md'>Login</button>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                             </ul>
                                         </nav>

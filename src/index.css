@@ -28,7 +28,20 @@
 }
 .active{
   color:#FF7703;
+  background-color: white;
 }
+
 .default{
   color:white;
+}
+
+
+.sidebar-container {
+  @apply  h-full bg-[#fccaa1] sm:w-[12rem] md:w-[290px] rounded-3xl  p-4 border transition-all duration-500 border-solid border-[#fccaa1] sm:relative
+}
+.sidebar-contain{
+  @apply  h-full bg-[#fccaa1] rounded-3xl p-4 border transition-all duration-500 border-solid border-[#fccaa1] sm:relative
+}
+.sidebar {
+  @apply flex items-center mt-2 md:px-4 md:py-4 px-3 py-2  rounded-lg cursor-pointer hover:bg-white transition-all duration-300
 }

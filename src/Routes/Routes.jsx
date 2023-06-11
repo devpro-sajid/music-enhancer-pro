@@ -5,6 +5,18 @@ import Main from "../Layouts/Main";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute";
+import Blog from "../Pages/Blog/Blog";
+import Dashboard from "../Layouts/Dashboard";
+import AdminRoute from "./AdminRoute";
+import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses";
+import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
+import InstructorRoute from "./InstructorRoute";
+import AddClass from "../Pages/Dashboard/Instructor/AddClass";
+import MyClasses from "../Pages/Dashboard/Instructor/MyClasses";
+import StudentRoute from "./StudentRoute";
+import MyEnrolledClass from "../Pages/Dashboard/Student/MyEnrolledClass";
+import MySelectedClass from "../Pages/Dashboard/Student/MySelectedClass";
 
   export const router = createBrowserRouter([
     {
@@ -23,6 +35,40 @@ import SignUp from "../Pages/SignUp/SignUp";
             path: 'signup',
             element: <SignUp></SignUp>
           },
+          {
+            path: 'blog',
+            element: <Blog></Blog>
+          },
+      ]
+    },
+    {
+      path: 'dashboard',
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>, 
+      children: [
+        {
+          path: 'manageClass', 
+          element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
+        },
+        {
+          path: 'manageUser', 
+          element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+        },
+        {
+          path: 'addClass', 
+          element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
+        },
+        {
+          path: 'myClass', 
+          element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
+        },
+        {
+          path: 'selectedClass', 
+          element: <StudentRoute><MySelectedClass></MySelectedClass></StudentRoute>
+        },
+        {
+          path: 'enrolledClass', 
+          element: <StudentRoute><MyEnrolledClass></MyEnrolledClass></StudentRoute>
+        },
       ]
     }
   ]);
