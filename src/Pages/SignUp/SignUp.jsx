@@ -39,7 +39,7 @@ const SignUp = () => {
                             // axiosSecure.post('/users', saveUser)
                             .then(res => res.json())
                             .then(data => {
-                                if (data.data.insertedId) {
+                                if (data.insertedId) {
                                     reset();
                                     Swal.fire({
                                         position: 'top-end',

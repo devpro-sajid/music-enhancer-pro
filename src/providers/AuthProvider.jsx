@@ -6,6 +6,7 @@ export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 const AuthProvider = ({children}) => {
+    const [toggle, setToggle] = useState(false);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
    
@@ -70,7 +71,9 @@ const AuthProvider = ({children}) => {
         signIn,
         googleSignIn,
         logOut,
-        updateUserProfile
+        updateUserProfile,
+        toggle,
+        setToggle
     }
 
     return (

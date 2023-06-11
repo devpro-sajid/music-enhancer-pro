@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { BiChevronLeft } from "react-icons/bi";
 import SidebarData from "./SidebarData";
 import UserProfile from "./UserProfile";
+import { AuthContext } from "../../providers/AuthProvider";
 const Sidebar = () => {
-  const [toggle, setToggle] = useState(false);
+  const {toggle, setToggle} = useContext(AuthContext);
   return (
-    <div className={`${toggle ? "sm:w-[5.8rem] sidebar-contain" : "sidebar-container"} `}>
+    <div className={`${toggle ? "lg:w-[8%] sm:w-[12%] sidebar-contain" : "sidebar-container"} `}>
       <UserProfile toggle={toggle} />
       <SidebarData toggle={toggle} />
       <div
