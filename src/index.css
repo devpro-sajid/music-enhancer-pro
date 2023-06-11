@@ -35,7 +35,9 @@
   color:white;
 }
 
-
+.bg-dashboard{
+  background-color: #F7F5EF;
+}
 .sidebar-container {
   @apply  h-full bg-[#fccaa1] sm:w-[30%] md:w-[36%] lg:w-[24%] rounded-3xl  p-4 border transition-all duration-500 border-solid border-[#fccaa1] sm:relative
 }
