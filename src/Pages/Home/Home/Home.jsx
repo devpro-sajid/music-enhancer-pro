@@ -1,4 +1,5 @@
 import BannerBottom from "../BannerBottom/BannerBottom";
+import PopularClasses from "../PopularClasses/PopularClasses";
 import HeroBanner from "../TopBanner/HeroBanner";
 
 
@@ -7,6 +8,7 @@ const Home = () => {
         <>
            <HeroBanner></HeroBanner>
            <BannerBottom></BannerBottom> 
+           <PopularClasses></PopularClasses>
         </>
     );
 };
