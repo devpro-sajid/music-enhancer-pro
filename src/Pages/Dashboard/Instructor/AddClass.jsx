@@ -24,12 +24,12 @@ const AddClass = () => {
                 console.log(imgResponse);
                 if (imgResponse.success) {
                     const imgUrl = imgResponse.data.display_url;
-                    const { className,instructorName,instructorEmail,availableSeatsString, priceString } = data;
-                    const availableSeats=parseFloat(availableSeatsString);
-                    const status='pending';
-                    const feedback='';
-                   const price= parseFloat(priceString);
-                    const newClass = { className, image: imgUrl,instructorName,instructorEmail, availableSeats, price,status,feedback }
+                    const { className, instructorName, instructorEmail, availableSeatsString, priceString } = data;
+                    const availableSeats = parseFloat(availableSeatsString);
+                    const status = 'pending';
+                    const feedback = '';
+                    const price = parseFloat(priceString);
+                    const newClass = { className, image: imgUrl, instructorName, instructorEmail, availableSeats, price, status, feedback }
                     console.log(newClass);
                     axiosSecure.post('/classes', newClass)
                         .then(data => {
@@ -108,7 +108,7 @@ const AddClass = () => {
                                 </label>
                                 <br />
                                 <input type="number" placeholder='quantity'
-                                    {...register("availableSeatsString", { required: true})}
+                                    {...register("availableSeatsString", { required: true })}
                                     className="p-2 rounded-md border w-full mt-1" />
                             </div>
                             <div className="form-control w-full sm:my-0 my-3">
