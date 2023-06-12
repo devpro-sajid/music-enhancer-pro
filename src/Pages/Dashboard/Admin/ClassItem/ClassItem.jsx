@@ -64,9 +64,9 @@ const ClassItem = ({ classItem, refetch }) => {
                 if (data.data.modifiedCount) {
                     refetch();
                     Swal.fire({
-                        position: 'top-end',
+                        position: 'center',
                         icon: 'success',
-                        title: `${classItem?.className} has denied`,
+                        title: `Feedback sent for ${classItem?.className}`,
                         showConfirmButton: false,
                         timer: 1500
                     })
