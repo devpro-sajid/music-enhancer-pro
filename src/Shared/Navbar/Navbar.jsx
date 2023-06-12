@@ -41,7 +41,7 @@ const Navbar = () => {
         <>
             <div style={{
           backgroundColor: navColor,
-          transition: "all 1s"}} className='sticky top-0 z-10 -mb-[80px]'>
+          transition: "all 1s"}} className='sticky top-0 z-50 -mb-[80px]'>
                 <div className='px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-7xl md:px-24 lg:px-8'>
                     <div className='relative flex items-center justify-between'>
                         <Link

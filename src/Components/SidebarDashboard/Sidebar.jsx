@@ -7,7 +7,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const Sidebar = () => {
   const {toggle, setToggle} = useContext(AuthContext);
   return (
-    <div className={`${toggle ? "lg:w-[8%] sm:w-[12%] sidebar-contain" : "sidebar-container"} `}>
+    <div className={`${toggle ? "lg:w-[8%] sm:w-[12%] sidebar-contain" : "sidebar-container"}`}>
       <UserProfile toggle={toggle} />
       <SidebarData toggle={toggle} />
       <div
