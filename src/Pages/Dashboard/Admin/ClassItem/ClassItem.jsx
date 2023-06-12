@@ -59,25 +59,17 @@ const ClassItem = ({ classItem, refetch }) => {
         formState: { errors },
     } = useForm();
     const onSubmit = (data) => {
-        data.toyPrice = parseFloat(data.toyPrice);
-        fetch(`https://gaming-toy-server.vercel.app/updateToy/${toy._id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-        })
-            .then(res => res.json())
-            .then(response => {
-                console.log(response);
-
-                if (response.modifiedCount > 0
-                ) {
+        axiosSecure.patch(`/classes/feedback/${classItem._id}`,{feedbackText:data.feedback})
+            .then(data => {
+                if (data.data.modifiedCount) {
+                    refetch();
                     Swal.fire({
-                        title: 'Success!',
-                        text: 'Toy Updated Successfully',
+                        position: 'top-end',
                         icon: 'success',
-                        confirmButtonText: 'Cool'
-                    });
-                    setLoadUpdateToys(true);
+                        title: `${classItem?.className} has denied`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                 }
             })
     }
