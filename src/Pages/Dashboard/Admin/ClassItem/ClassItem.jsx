@@ -12,36 +12,36 @@ function classNames(...classes) {
 const ClassItem = ({ classItem, refetch }) => {
     const [axiosSecure] = useAxiosSecure();
     let [isOpen, setIsOpen] = useState(false);
-    
-    const handleApproveClass=id=>{
+
+    const handleApproveClass = id => {
         axiosSecure.patch(`/classes/approve/${id}`)
-        .then(data => {
-            if(data.data.modifiedCount){
-                refetch();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${classItem?.className} has approved`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-            }
-        })
+            .then(data => {
+                if (data.data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${classItem?.className} has approved`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
-    const handleDenyClass=id=>{
+    const handleDenyClass = id => {
         axiosSecure.patch(`/classes/deny/${id}`)
-        .then(data => {
-            if(data.data.modifiedCount){
-                refetch();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${classItem?.className} has denied`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-            }
-        })
+            .then(data => {
+                if (data.data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${classItem?.className} has denied`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
     function closeModal() {
@@ -94,18 +94,18 @@ const ClassItem = ({ classItem, refetch }) => {
                 <td className="whitespace-nowrap px-3 py-4">{classItem?.price}</td>
                 <td className="whitespace-nowrap px-3 py-4">{classItem?.status}</td>
                 <td className="whitespace-nowrap px-3 py-4 ">
-                    {classItem?.status==='pending'&& <>
-                    <button onClick={()=>handleApproveClass(classItem._id)} className='bg-[#36D399]  w-[111px] py-1 px-2 text-white font-semibold rounded-md' >Approve Class</button><br/>
-                    <button onClick={()=>handleDenyClass(classItem._id)} className='bg-red-600 w-[111px] my-2 py-1 px-2 text-white font-semibold rounded-md'>Deny Class</button><br />
-                    <button className='bg-prime py-1 px-2 text-white font-semibold rounded-md' onClick={openModal}>Send Feedback</button>
+                    {classItem?.status === 'pending' && <>
+                        <button onClick={() => handleApproveClass(classItem._id)} className='bg-[#36D399]  w-[111px] py-1 px-2 text-white font-semibold rounded-md' >Approve Class</button><br />
+                        <button onClick={() => handleDenyClass(classItem._id)} className='bg-red-600 w-[111px] my-2 py-1 px-2 text-white font-semibold rounded-md'>Deny Class</button><br />
+                        <button className='bg-prime py-1 px-2 text-white font-semibold rounded-md' onClick={openModal}>Send Feedback</button>
                     </>}
-                    {classItem?.status==='approved'&&<>
-                    <button className='bg-prime py-1 px-2 text-white font-semibold rounded-md' onClick={openModal}>Send Feedback</button>
+                    {classItem?.status === 'approved' && <>
+                        <button className='bg-prime py-1 px-2 text-white font-semibold rounded-md' onClick={openModal}>Send Feedback</button>
                     </>}
-                    {classItem?.status==='denied'&&<>
-                    <button className='bg-prime  py-1 px-2 text-white font-semibold rounded-md' onClick={openModal}>Send Feedback</button>
+                    {classItem?.status === 'denied' && <>
+                        <button className='bg-prime  py-1 px-2 text-white font-semibold rounded-md' onClick={openModal}>Send Feedback</button>
                     </>}
-                    
+
 
                     <Transition appear show={isOpen} as={Fragment
                     }>
@@ -136,32 +136,25 @@ const ClassItem = ({ classItem, refetch }) => {
                                         <Dialog.Panel className="w-full max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                                             <Dialog.Title
                                                 as="h3"
-                                                className="text-2xl pt-6 pb-3 text-center font-semibold leading-6 text-gray-900 "
+                                                className="text-2xl  sec-title pt-6 pb-3 text-center font-semibold leading-6 text-gray-900 "
                                             >
-                                                Update Toy
+                                                Send Feedback
                                             </Dialog.Title>
                                             <div className="mt-2">
                                                 <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded md:px-8 px-2 pt-6 pb-6 " id='add-form'>
-                                                    <div className="md:flex items-center md:space-x-4">
-                                                        <div className='md:w-1/2 mb-3'>
-                                                            <label className="block text-gray-700 text-sm font-bold mb-2">
-                                                                Toy Name
-                                                            </label>
-                                                            <input className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-[#26A8DF] focus:shadow-outline " {...register("toyName")} type="text"
-                                                            />
-                                                        </div>
-                                                        <div className='md:w-1/2 mb-3'>
-                                                            <label className="block text-gray-700 text-sm font-bold mb-2">
-                                                                Picture (url)
-                                                            </label>
-                                                            <input className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-[#26A8DF] focus:shadow-outline " {...register("toyPhoto")} type="url"
-                                                                placeholder="https://toypicture.png/"  />
-                                                        </div>
+
+                                                    <div className='mb-3'>
+                                                        <textarea id="txtId" name="feedback" rows="4"
+                                                        {...register("feedback")} className='w-full shadow appearance-none border outline-[#FF7703] rounded  py-2 px-3 text-gray-700 leading-tight focus:shadow-outline' maxlength="70" placeholder='Write your feedback here'>
+                                                        </textarea>
+                                                        
                                                     </div>
+
+
                                                     {/* add Button */}
                                                     <div onClick={closeModal} className=" ">
-                                                        <button className="bg-[#26A8DF] mt-2 hover:bg-white text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full hover:text-[#26A8DF] border border-[#26A8DF] duration-500" type="submit">
-                                                            Update Toy
+                                                        <button className="bg-prime mt-2 hover-bg-btn text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full hover:text-prime border border-#FF7703 duration-500" type="submit">
+                                                            Submit
                                                         </button>
                                                     </div>
 
