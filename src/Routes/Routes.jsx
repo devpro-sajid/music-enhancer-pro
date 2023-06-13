@@ -19,11 +19,13 @@ import MySelectedClass from "../Pages/Dashboard/Student/MySelectedClass";
 import Welcome from "../Pages/Dashboard/Welcome/Welcome";
 import Classes from "../Pages/Classes/Classes";
 import Instructors from "../Pages/Instructors/Instructors";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
