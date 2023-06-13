@@ -1,6 +1,7 @@
 import React from 'react';
 import PageTitle from '../../Components/PageTitle/PageTitle';
 import AllInstructors from './AllInstructors/AllInstructors';
+import { Helmet } from 'react-helmet-async';
 
 const Instructors = () => {
     return (

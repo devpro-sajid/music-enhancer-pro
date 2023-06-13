@@ -1,6 +1,7 @@
 import React from 'react';
 import PageTitle from '../../Components/PageTitle/PageTitle';
 import AllClasses from './AllClasses/AllClasses';
+import { Helmet } from 'react-helmet-async';
 
 const Classes = () => {
     return (
