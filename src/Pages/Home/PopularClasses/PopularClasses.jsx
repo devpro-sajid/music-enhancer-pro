@@ -5,7 +5,7 @@ import ClassCard from './ClassCard';
 const PopularClasses = () => {
     const [classes,setClasses]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/popularClasses')
+        fetch('https://music-enhancer-server.vercel.app/popularClasses')
         .then(res=>res.json())
         .then(data=>setClasses(data));
     },[])

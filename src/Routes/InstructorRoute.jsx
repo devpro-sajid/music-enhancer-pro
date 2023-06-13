@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from "react-router";
-import useAuth from "../Hooks/useAuth";
+import useAuth from "../hooks/useAuth";
 import useInstructor from "../Hooks/useInstructor";
 
 const InstructorRoute = ({ children }) => {
