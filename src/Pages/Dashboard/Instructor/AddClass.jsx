@@ -50,6 +50,9 @@ const AddClass = () => {
     }
     return (
         <>
+        <Helmet>
+                <title>Add A Class | Music Enhancer</title>
+            </Helmet>
             <SectionTopTitle sectionTitleTop="New Lesson?" sectionTitle="Add a Class" sectionDesc="get connected with the students"></SectionTopTitle>
             <div className='lg:px-12 md:p-8 py-3'>
                 <div className="bg-dashboard py-6 md:px-8 sm:px-6 px-5">

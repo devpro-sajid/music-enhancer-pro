@@ -57,7 +57,7 @@ const Login = () => {
     return (
         <div className='h-screen'>
             <Helmet>
-                <title>Music Enhancer | Login</title>
+                <title>Login | Music Enhancer</title>
             </Helmet>
             <section className="bg-gray-50 min-h-screen flex items-center justify-center lg::py-0 py-10">
                 
