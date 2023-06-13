@@ -47,3 +47,8 @@
 .sidebar {
   @apply flex items-center mt-2 md:px-4 md:py-4 px-3 py-2  rounded-lg cursor-pointer hover:bg-white transition-all duration-300
 }
+
+/*  swal*/
+.swal2-confirm{
+  background-color: #EA6D00!important;
+}

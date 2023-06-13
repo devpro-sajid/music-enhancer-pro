@@ -55,7 +55,7 @@ const ClassCard = ({ classItem }) => {
 
     }
     return (
-        <div className='bg-white rounded-xl pb-5 shadow-sm'>
+        <div className='bg-white rounded-xl pb-5 shadow-sm hover:shadow-lg duration-300'>
             <img className='rounded-t-xl h-[190px] md:h-[220px] w-full' src={image} alt="" />
             <div className='md:px-6 px-4 py-3 md:pt-6 md:pb-3'>
                 <div className='flex justify-between space-x-2'>

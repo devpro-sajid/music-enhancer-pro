@@ -284,19 +284,9 @@ const Navbar = () => {
                                                         Instructors
                                                     </NavLink>
                                                 </li>
-                                                <li>
-                                                    <NavLink
-                                                        to='/blog'
-                                                        aria-label='Blog'
-                                                        title='Blog'
-                                                        className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                                                       >
-                                                        Blog
-                                                    </NavLink>
-                                                </li>
                                                 <li className={user ? 'hidden' : ''}>
                                                     <NavLink to='/login'>
-                                                        <button className='text-white bg-amber-400 px-8 md:py-3 py-2 font-semibold rounded-md'>Login</button>
+                                                        <button className='text-white bg-prime px-8 md:py-3 py-2 font-semibold rounded-md'>Login</button>
                                                     </NavLink>
                                                 </li>
                                             </ul>

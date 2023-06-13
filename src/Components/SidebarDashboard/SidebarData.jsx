@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import useInstructor from "../../Hooks/useInstructor";
-import useAdmin from "../../Hooks/useAdmin";
+import useAdmin from "../../hooks/useAdmin";
 import useStudent from "../../Hooks/UseStudent";
 import { adminNav } from "./adminNav";
 import { instructorNav } from "./instructorNav";
