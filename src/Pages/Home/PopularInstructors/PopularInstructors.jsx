@@ -11,6 +11,7 @@ const PopularInstructors = () => {
             .then(data => setInstructors(data));
     }, [])
     return (
+        <div className='dark:bg-[#151515]'>
         <div className='main-container py-12'>
         <SectionTopTitle sectionTitle='Our Popular Instructors' sectionTitleTop='Our Instructors' sectionDesc='Highly professional from different countries'></SectionTopTitle>
         <Fade down delay={300} duration={2000} fraction={0}><div className='grid sm:grid-cols-2 md:grid-cols-3 md:gap-8 gap-5 pt-10 pb-6'>
@@ -18,6 +19,7 @@ const PopularInstructors = () => {
         </div></Fade>
 
 
+    </div>
     </div>
     );
 };

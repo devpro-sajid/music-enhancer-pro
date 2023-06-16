@@ -1,6 +1,7 @@
 import { Navigate, useLocation } from "react-router";
 import useAuth from "../hooks/useAuth";
 import useInstructor from "../Hooks/useInstructor";
+import TableLoading from "../Components/Loading/TableLoading";
 
 const InstructorRoute = ({ children }) => {
     const { user, loading } = useAuth();
@@ -8,7 +9,7 @@ const InstructorRoute = ({ children }) => {
     const location = useLocation();
 
     if(loading || isInstructorLoading){
-        return <progress className="progress w-56"></progress>
+        return <TableLoading/>
     }
 
     if (user && isInstructor) {

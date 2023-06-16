@@ -7,7 +7,7 @@ const ErrorPage = () => {
   const { error, status } = useRouteError()
   return (
     <>
-    <section className='flex items-center h-screen md:p-16 px-6 py-16 bg-[#FFFFFF] text-gray-900'>
+    <section className='flex items-center h-screen md:p-16 px-6 py-16 bg-[#FFFFFF]  text-gray-900'>
       <div className='mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:flex items-center justify-between my-8 '>
         <div className='text-left md:pr-5'>
         <img src="https://i.ibb.co/0rDHvVW/errormu.jpg" alt="" />

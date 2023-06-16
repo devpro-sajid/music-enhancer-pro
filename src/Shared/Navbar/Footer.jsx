@@ -146,7 +146,7 @@ const Footer = () => {
 
                 {/* <!--Copyright section--> */}
                 <div className='main-container mx-auto' >
-                    <div className="text-center dark:bg-neutral-700  border-t border-[#ffffff32] md:flex justify-between items-center py-4 text-white">
+                    <div className="text-center  border-t border-[#ffffff32] md:flex justify-between items-center py-4 text-white">
                         <span>© 2023 Copyright/All Rights Reserved By Music Enhancer</span>
                         <div className='flex items-center justify-center space-x-2 md:pt-0 pt-2'>
                             <Link to='/privacy-policy'>Privacy Policy</Link>

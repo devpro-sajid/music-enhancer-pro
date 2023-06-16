@@ -5,43 +5,78 @@ import { Menu, Transition } from '@headlessui/react'
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [navColor, setnavColor] = useState("transparent");
-  const listenScrollEvent = () => {
-    window.scrollY > 10 ? setnavColor("#151515") : setnavColor("transparent");
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", listenScrollEvent);
-    return () => {
-      window.removeEventListener("scroll", listenScrollEvent);
-    };
-  }, []);
+    const [theme, setTheme] = useState(
+        localStorage.getItem('theme') ? localStorage.getItem('theme') : "system"
+    );
 
+    const element = document.documentElement;
+    const darkQuery = window.matchMedia("(prefers-color-scheme:dark)");
+
+
+    const listenScrollEvent = () => {
+        window.scrollY > 10 ? setnavColor("#151515") : setnavColor("transparent");
+    };
+    useEffect(() => {
+        window.addEventListener("scroll", listenScrollEvent);
+        return () => {
+            window.removeEventListener("scroll", listenScrollEvent);
+        };
+    }, []);
+
+    // dark light switch
+    function onWindowMatch() {
+        if (localStorage.theme === 'dark' || (!("theme" in localStorage) && darkQuery.matches)) {
+            element.classList.add("dark");
+        }
+        else {
+            element.classList.remove("dark");
+        }
+    }
+    onWindowMatch();
+    useEffect(() => {
+        switch (theme) {
+            case 'dark':
+                element.classList.add('dark');
+                localStorage.setItem('theme', 'dark')
+                break;
+            case 'light':
+                element.classList.remove('dark');
+                localStorage.setItem('theme', 'light')
+                break;
+            default:
+                localStorage.removeItem('theme');
+                onWindowMatch()
+                break;
+        }
+    }, [theme])
 
     const handleLogout = () => {
-          logOut()
+        logOut()
             .then(() => {
-              Swal.fire({
-                icon: 'success',
-                title: 'You have logged out Successfully',
-                showConfirmButton: false,
-                timer: 1500
-              })
+                Swal.fire({
+                    icon: 'success',
+                    title: 'You have logged out Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             })
             .catch((error) => {
-              // toast.error(error.message);
+                // toast.error(error.message);
             })
     }
     return (
         <>
             <div style={{
-          backgroundColor: navColor,
-          transition: "all 1s"}} className='sticky top-0 z-50 -mb-[80px]'>
+                backgroundColor: navColor,
+                transition: "all 1s"
+            }} className='sticky top-0 z-50 -mb-[80px]'>
                 <div className='px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-7xl md:px-24 lg:px-8'>
                     <div className='relative flex items-center justify-between'>
                         <Link
@@ -56,7 +91,7 @@ const Navbar = () => {
                             <h2 className='ml-2 text-xl md:text-2xl lg:text-3xl font-bold tracking-wide sec-title text-white '>
                                 Music <span className='text-prime'>Enhancer</span>
                             </h2>
-                            
+
                         </Link>
                         <div className='hidden space-between lg:flex md:w-3/5 w-full'>
                             <ul className='items-center space-x-8 flex ml-auto mr-6'>
@@ -90,16 +125,12 @@ const Navbar = () => {
                                         Instructors
                                     </NavLink>
                                 </li>
-                                {/* <li>
-                                    <NavLink
-                                        to='/blog'
-                                        aria-label='Blog'
-                                        title='Blog'
-                                        className={({ isActive }) => (isActive ? 'active' : 'default')}
-                                    >
-                                        Blog
-                                    </NavLink>
-                                </li> */}
+                                <li>
+                                    <span className={`${theme === 'dark' ? 'block' : 'hidden'}`}><FaMoon onClick={() => setTheme('light')} title='Make Light Mode' className='text-xl text-prime'></FaMoon></span>
+                                    <span className={`${theme === 'dark' ? 'hidden' : 'block'}`}><FaSun onClick={() => setTheme('dark')} title='Make Dark Mode' className='text-xl text-prime'></FaSun></span>
+
+
+                                </li>
                             </ul>
                             <Menu as="div" className="relative flex items-center">
                                 <div>
@@ -283,6 +314,12 @@ const Navbar = () => {
                                                     >
                                                         Instructors
                                                     </NavLink>
+                                                </li>
+                                                <li>
+                                                    <span className={`${theme === 'dark' ? 'block' : 'hidden'}`}><FaMoon onClick={() => setTheme('light')} title='Make Light Mode' className='text-xl text-prime'></FaMoon></span>
+                                                    <span className={`${theme === 'dark' ? 'hidden' : 'block'}`}><FaSun onClick={() => setTheme('dark')} title='Make Dark Mode' className='text-xl text-prime'></FaSun></span>
+
+
                                                 </li>
                                                 <li className={user ? 'hidden' : ''}>
                                                     <NavLink to='/login'>

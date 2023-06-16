@@ -4,6 +4,7 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { FaEdit } from 'react-icons/fa'
 import { Helmet } from 'react-helmet-async';
+import InstructorClassRow from './InstructorClassRow/InstructorClassRow';
 
 const MyClasses = () => {
     const { user } = useAuth();
@@ -12,6 +13,8 @@ const MyClasses = () => {
         const res = await axiosSecure.get(`/classes?email=${user?.email}`)
         return res.data;
     })
+
+    
     return (
         <>
             <Helmet>
@@ -40,21 +43,7 @@ const MyClasses = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {classes?.map(classItem => {
-                                            return (
-                                                <tr className="border-b last:border-0 dark:border-neutral-500" key={classItem?._id}>
-                                                    <td className="whitespace-nowrap px-6 py-4 font-medium"> <img className='md:w-20 w-[52px] h-[52px] md:h-20 rounded-sm' src={classItem?.image} alt="" /></td>
-                                                    <td className="whitespace-nowrap px-6 py-4">
-                                                        {classItem?.className}
-                                                    </td>
-                                                    <td className="whitespace-nowrap px-6 py-4">{classItem?.availableSeats}</td>
-                                                    <td className="whitespace-nowrap px-6 py-4">{classItem?.price}</td>
-                                                    <td className="whitespace-nowrap px-6 py-4">{classItem?.status}</td>
-                                                    <td className="whitespace-nowrap px-6 py-4">{classItem?.feedback}</td>
-                                                    <td className="whitespace-nowrap px-6 py-4"><FaEdit className='text-xl' /></td>
-                                                </tr>
-                                            )
-                                        })}
+                                        {classes?.map(classItem =><InstructorClassRow key={classItem._id} classItem={classItem} refetch={refetch}></InstructorClassRow>  )}
 
                                     </tbody>
                                 </table>
