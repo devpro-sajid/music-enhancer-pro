@@ -11,6 +11,7 @@
 + Admin can manage whole users and classes
 + Instructor can add class and manage class in their dashboard
 + Student can select class and manage class in their dashboard
++ they can enroll classes by paying.
 + Authentication system by email & password.
 + Social Authentication system.
 + Private Route System.
@@ -27,5 +28,6 @@
 + react-router-dom
 + sweetalert2
 + swiper JS"
++ Stripe-js,React-stripe
 
 
