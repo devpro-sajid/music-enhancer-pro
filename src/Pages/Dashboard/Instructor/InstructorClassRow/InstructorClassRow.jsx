@@ -144,7 +144,7 @@ return (
                                                 </label>
                                                 <br />
                                                 <input type="text" placeholder="Class Name"
-                                                    {...register("className", { required: true, maxLength: 120 })}
+                                                    {...register("className", { required: true, maxLength: 120 })} defaultValue={classItem?.className}
                                                     className="p-2 rounded-md border w-full mt-1" />
                                             </span>
                                             <span className="form-control w-full sm:my-0 my-3">
