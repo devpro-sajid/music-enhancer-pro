@@ -93,7 +93,7 @@ return (
                 {classItem?.className}
             </td>
             <td className="whitespace-nowrap px-6 py-4">{classItem?.availableSeats}</td>
-            <td className="whitespace-nowrap px-6 py-4">{classItem?.price}</td>
+            <td className="whitespace-nowrap px-6 py-4">{classItem?.price}$</td>
             <td className="whitespace-nowrap px-6 py-4">{classItem?.status}</td>
             <td className="whitespace-nowrap px-6 py-4">{classItem?.feedback}</td>
             <td className="whitespace-nowrap px-6 py-4"><FaEdit className={`${classItem.status==='approved'?'hidden':'block'} text-xl`} onClick={openModal} /></td>

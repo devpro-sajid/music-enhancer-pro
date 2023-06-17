@@ -83,7 +83,7 @@ const ClassItem = ({ classItem, refetch }) => {
                 <td className="whitespace-nowrap px-3 py-4">{classItem?.instructorName}</td>
                 <td className="whitespace-nowrap px-3 py-4">{classItem?.instructorEmail}</td>
                 <td className="whitespace-nowrap px-3 py-4">{classItem?.availableSeats}</td>
-                <td className="whitespace-nowrap px-3 py-4">{classItem?.price}</td>
+                <td className="whitespace-nowrap px-3 py-4">{classItem?.price}$</td>
                 <td className="whitespace-nowrap px-3 py-4">{classItem?.status}</td>
                 <td className="whitespace-nowrap px-3 py-4 ">
                     {classItem?.status === 'pending' && <>

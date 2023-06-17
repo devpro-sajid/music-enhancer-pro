@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../../hooks/useAuth';
-import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import useAuth from '../../../Hooks/useAuth';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { FaEdit } from 'react-icons/fa'
 import { Helmet } from 'react-helmet-async';

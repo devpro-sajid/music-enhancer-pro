@@ -1,4 +1,5 @@
 import {
+  Navigate,
   createBrowserRouter,
 } from "react-router-dom";
 import Main from "../Layouts/Main";
@@ -20,6 +21,8 @@ import Welcome from "../Pages/Dashboard/Welcome/Welcome";
 import Classes from "../Pages/Classes/Classes";
 import Instructors from "../Pages/Instructors/Instructors";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Payment from "../Pages/Dashboard/Student/Payments/Payment";
+import PaymentHistory from "../Pages/Dashboard/Student/PaymentHistory";
 
 export const router = createBrowserRouter([
   {
@@ -52,6 +55,7 @@ export const router = createBrowserRouter([
   {
     path: 'dashboard',
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    errorElement: <Navigate to="/dashboard" replace></Navigate>,
     children: [
       {
         path: '/dashboard',
@@ -80,6 +84,14 @@ export const router = createBrowserRouter([
       {
         path: 'enrolledClass',
         element: <StudentRoute><MyEnrolledClass></MyEnrolledClass></StudentRoute>
+      },
+      {
+        path: 'selectedClass/payment/:id',
+        element: <StudentRoute><Payment></Payment></StudentRoute>,
+      },
+      {
+        path: 'paymentHistory',
+        element: <StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>,
       },
     ]
   }

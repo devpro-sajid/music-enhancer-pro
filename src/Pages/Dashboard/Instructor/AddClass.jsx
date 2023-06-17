@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form';
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import SectionTopTitle from '../../../Components/SectioTopTitle/SectionTopTitle';
-import useAuth from '../../../hooks/useAuth';
+import useAuth from '../../../Hooks/useAuth';
 import { Helmet } from 'react-helmet-async';
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
@@ -29,8 +29,9 @@ const AddClass = () => {
                     const availableSeats = parseFloat(availableSeatsString);
                     const status = 'pending';
                     const feedback = '';
+                    const enrolled=0;
                     const price = parseFloat(priceString);
-                    const newClass = { className, image: imgUrl, instructorName, instructorEmail, availableSeats, price, status, feedback }
+                    const newClass = { className, image: imgUrl, instructorName, instructorEmail, availableSeats, price, status, feedback,enrolled }
                     console.log(newClass);
                     axiosSecure.post('/classes', newClass)
                         .then(data => {
@@ -117,7 +118,7 @@ const AddClass = () => {
                             </div>
                             <div className="form-control w-full sm:my-0 my-3">
                                 <label className="label">
-                                    <span className="label-text font-semibold">Price*</span>
+                                    <span className="label-text font-semibold">Price(USD)*</span>
                                 </label>
                                 <br />
                                 <input type="number" placeholder='Class Price' {...register("priceString", { required: true })}

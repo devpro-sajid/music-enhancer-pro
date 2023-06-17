@@ -1,35 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
-import useClasses from '../../../Hooks/useClasses';
+import useAuth from '../../../hooks/useAuth';
 import { Helmet } from 'react-helmet-async';
 
-const MyEnrolledClass = () => {
+const PaymentHistory = () => {
     const [axiosSecure] = useAxiosSecure();
     const { user } = useAuth();
-    const classes = useClasses();
-    const [enrolledClasses, setEnrolledClass] = useState([]);
+    const [paidHistory, setPaidHistory] = useState([])
     useEffect(() => {
         axiosSecure.get(`enrolledClasses?email=${user?.email}`)
             .then(data => {
-                let enrolled = [];
-                for (const enrolledClass of data.data) {
-                    const enrollClass = classes.filter(classItem => classItem._id == enrolledClass.selectedId);
-                    enrolled.push(enrollClass[0]);
-                }
-                setEnrolledClass([...enrolled]);
+                setPaidHistory(data.data)
             })
 
-    }, [classes, axiosSecure, user])
+    }, [axiosSecure, user])
+
     return (
         <>
             <Helmet>
-                <title>Enrolled Classes | Music Enhancer</title>
+                <title>Payment History | Music Enhancer</title>
             </Helmet>
             <div className='bg-dashboard rounded-md'>
                 <div className='flex md:px-5 px-3 bg-[#fccaa1] py-3 justify-between rounded-t-md'>
-                    <h2 className='font-bold sec-title md:text-xl '>My Enrolled Classes</h2>
-                    <h2 className='font-bold sec-title md:text-xl'>Total Enrolled: {enrolledClasses.length}</h2>
+                    <h2 className='font-bold sec-title md:text-xl '>Payment History</h2>
+                    <h2 className='font-bold sec-title md:text-xl'>Total Paid for: {paidHistory.length}</h2>
                 </div>
 
                 <div className="flex flex-col">
@@ -39,26 +33,24 @@ const MyEnrolledClass = () => {
                                 <table className="min-w-full text-left text-sm font-light bg-dashboard">
                                     <thead className="border-b font-medium dark:border-neutral-500">
                                         <tr>
-                                            <th scope="col" className="px-6 py-4">Photo</th>
-                                            <th scope="col" className="px-6 py-4">Name</th>
-                                            <th scope="col" className="px-6 py-4">Instructor name</th>
-                                            <th scope="col" className="px-6 py-4">Available Seats</th>
-                                            <th scope="col" className="px-6 py-4">Price</th>
+                                            <th scope="col" className="px-6 py-4">Class Name</th>
+                                            <th scope="col" className="px-6 py-4">Date</th>
+                                            <th scope="col" className="px-6 py-4">Transaction Id</th>
+                                            <th scope="col" className="px-6 py-4">Paid</th>
+                                            <th scope="col" className="px-6 py-4">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {enrolledClasses?.map(classItem => {
+                                        {paidHistory?.map(classItem => {
                                             return (
                                                 <tr className="border-b last:border-0 dark:border-neutral-500" key={classItem?._id}>
-                                                    <td className="whitespace-nowrap px-6 py-4 font-medium"> <img className='md:w-20 w-[52px] h-[52px] md:h-20 rounded-sm' src={classItem?.image} alt="" /></td>
                                                     <td className="whitespace-nowrap px-6 py-4">
                                                         {classItem?.className}
                                                     </td>
-                                                    <td className="whitespace-nowrap px-6 py-4">
-                                                        {classItem?.instructorName}
-                                                    </td>
-                                                    <td className="whitespace-nowrap px-6 py-4">{classItem?.availableSeats}</td>
+                                                    <td className="whitespace-nowrap px-6 py-4">{classItem?.date}</td>
+                                                    <td className="whitespace-nowrap px-6 py-4">{classItem?.transactionId}</td>
                                                     <td className="whitespace-nowrap px-6 py-4">{classItem?.price}$</td>
+                                                    <td className="whitespace-nowrap px-6 py-4">{classItem?.status}</td>
                                                 </tr>
                                             )
                                         })}
@@ -75,4 +67,4 @@ const MyEnrolledClass = () => {
     );
 };
 
-export default MyEnrolledClass;
+export default PaymentHistory;

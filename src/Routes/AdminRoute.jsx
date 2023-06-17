@@ -1,6 +1,6 @@
 import { Navigate, useLocation } from "react-router";
-import useAuth from "../hooks/useAuth";
-import useAdmin from "../hooks/useAdmin";
+import useAuth from "../Hooks/useAuth";
+import useAdmin from "../Hooks/useAdmin";
 import TableLoading from "../Components/Loading/TableLoading";
 
 

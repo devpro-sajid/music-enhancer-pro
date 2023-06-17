@@ -12,7 +12,7 @@ const UserProfile = ({ toggle }) => {
           : "bg-white rounded-xl p-2"
       }`}
     >
-      <div className="md:min-w-[3.5rem] md:h-[3.5rem] min-w-[40px] h-10">
+       <div className="md:min-w-[3.5rem] md:h-[3.5rem] min-w-[40px] h-10">
         <img
           src={user?.photoURL}
           alt=""

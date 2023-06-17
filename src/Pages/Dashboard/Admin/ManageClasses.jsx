@@ -1,6 +1,6 @@
 import React from 'react';
-import useAuth from '../../../hooks/useAuth';
-import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import useAuth from '../../../Hooks/useAuth';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import ClassItem from './ClassItem/ClassItem';
 import { Helmet } from 'react-helmet-async';
@@ -8,8 +8,8 @@ import { Helmet } from 'react-helmet-async';
 const ManageClasses = () => {
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure();
-    const { data: allClasses = [], refetch } = useQuery(['allClasses'], async () => {
-        const res = await axiosSecure.get('/allclasses')
+    const { data: allStatusClasses = [], refetch } = useQuery(['allStatusClasses'], async () => {
+        const res = await axiosSecure.get('/allStatusClasses')
         return res.data;
     })
     return (
@@ -20,7 +20,7 @@ const ManageClasses = () => {
             <div className='bg-dashboard rounded-md'>
                 <div className='flex md:px-5 px-3 bg-[#fccaa1] py-3 justify-between rounded-t-md'>
                     <h2 className='font-bold sec-title md:text-xl '>Manage Classes</h2>
-                    <h2 className='font-bold sec-title md:text-xl'>Total Class: {allClasses.length}</h2>
+                    <h2 className='font-bold sec-title md:text-xl'>Total Class: {allStatusClasses.length}</h2>
                 </div>
 
                 <div className="flex flex-col">
@@ -41,7 +41,7 @@ const ManageClasses = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {allClasses?.map(classItem => {
+                                        {allStatusClasses?.map(classItem => {
                                             return (
                                                 <ClassItem key={classItem._id} classItem={classItem} refetch={refetch}></ClassItem>
                                             )

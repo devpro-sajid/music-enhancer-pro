@@ -1,5 +1,5 @@
 import { RxDashboard } from "react-icons/rx";
-import { FaGraduationCap, FaRegBookmark } from "react-icons/fa";
+import { FaGraduationCap, FaHistory, FaRegBookmark } from "react-icons/fa";
 
 export const studentNav = [
   
@@ -14,6 +14,12 @@ export const studentNav = [
     link:'enrolledClass',
     icon: <FaGraduationCap />,
     text: "Enrolled Classes",
+  },
+  {
+    id: 3,
+    link:'paymentHistory',
+    icon: <FaHistory />,
+    text: "Payment History",
   }
 
 ];
