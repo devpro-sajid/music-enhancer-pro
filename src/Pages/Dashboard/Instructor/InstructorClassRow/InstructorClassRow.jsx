@@ -61,11 +61,11 @@ const InstructorClassRow = ({ classItem, refetch }) => {
                         })
                 }
                 else{
-                    const { className, instructorName,image:image,instructorEmail, availableSeatsString, priceString } = data;
+                    const { className, instructorName,instructorEmail, availableSeatsString, priceString } = data;
                     const availableSeats = parseFloat(availableSeatsString);
                     const price = parseFloat(priceString);
                     const status = classItem.status;
-                    const updatedClass = { className, instructorName, instructorEmail, availableSeats, price, status }
+                    const updatedClass = { className, instructorName,image:image, instructorEmail, availableSeats, price, status }
                     axiosSecure.patch(`/classes/${classItem._id}`, updatedClass)
                         .then(data => {
                             if (data.data.modifiedCount) {

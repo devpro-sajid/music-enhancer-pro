@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import dateFormat from 'dateformat';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useAuth from '../../../hooks/useAuth';
 import { Helmet } from 'react-helmet-async';
@@ -47,7 +48,7 @@ const PaymentHistory = () => {
                                                     <td className="whitespace-nowrap px-6 py-4">
                                                         {classItem?.className}
                                                     </td>
-                                                    <td className="whitespace-nowrap px-6 py-4">{classItem?.date}</td>
+                                                    <td className="whitespace-nowrap px-6 py-4">{dateFormat(classItem?.date, " mmmm dS, yyyy, h:MM:ss TT")}</td>
                                                     <td className="whitespace-nowrap px-6 py-4">{classItem?.transactionId}</td>
                                                     <td className="whitespace-nowrap px-6 py-4">{classItem?.price}$</td>
                                                     <td className="whitespace-nowrap px-6 py-4">{classItem?.status}</td>
