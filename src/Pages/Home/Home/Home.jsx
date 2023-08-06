@@ -5,6 +5,8 @@ import PopularInstructors from "../PopularInstructors/PopularInstructors";
 import HeroBanner from "../TopBanner/HeroBanner";
 import AboutSection from "../AboutSchool/AboutSection";
 import Statistics from "../SchoolStatistics/Statistics";
+import StudentTestimonials from "../Testimonials/StudentTestimonials";
+import FaqSction from "../FaqSection/FaqSction";
 
 const Home = () => {
     return (
@@ -18,6 +20,8 @@ const Home = () => {
             <AboutSection></AboutSection>
             <Statistics></Statistics>
             <PopularInstructors></PopularInstructors>
+            <StudentTestimonials></StudentTestimonials>
+            <FaqSction></FaqSction>
         </>
     );
 };

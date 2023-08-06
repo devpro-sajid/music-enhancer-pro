@@ -9,7 +9,7 @@ const StatisticsCard = ({counter}) => {
     return (
         <div className='text-center'>
             <div className="content" />
-            <CountUp className='text-white text-5xl font-bold' end={counter.number} enableScrollSpy />
+            <CountUp className='text-white text-5xl font-bold' end={counter.number} enableScrollSpy /><span className='text-5xl text-white'>+</span>
             <h2 className="sm:text-2xl text-xl font-bold sec-title text-black pt-2">{counter.name}</h2>
         </div>
     );
