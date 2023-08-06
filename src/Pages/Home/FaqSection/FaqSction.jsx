@@ -7,9 +7,9 @@ const FaqSction = () => {
         <div className='bg-dashboard py-16 dark:bg-[#151515]'>
             <SectionTopTitle sectionTitle='Frequently Asked Questions' sectionTitleTop='F.A.Q' sectionDesc='Well organized for beginners and everyone as well'></SectionTopTitle>
 
-            <div className='flex main-container space-x-8 py-6'>
+            <div className='md:flex main-container space-y-4 md:space-y-0 md:space-x-8 py-6'>
 
-                <div className='w-1/2'>
+                <div className='md:w-1/2'>
                     <Disclosure>
                         {({ open }) => (
                             <>
@@ -91,7 +91,7 @@ const FaqSction = () => {
                         )}
                     </Disclosure>
                 </div>
-                <div className='w-1/2'>
+                <div className='md:w-1/2'>
                     <Disclosure>
                         {({ open }) => (
                             <>
