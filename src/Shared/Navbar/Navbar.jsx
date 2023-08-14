@@ -136,6 +136,16 @@ const Navbar = () => {
                                     </NavLink>
                                 </li>
                                 <li>
+                                    <NavLink
+                                        to='/contact-us'
+                                        aria-label='contact'
+                                        title='contact'
+                                        className={({ isActive }) => (isActive ? 'text-prime' : 'default')}
+                                    >
+                                        Contact
+                                    </NavLink>
+                                </li>
+                                <li>
                                     <span className={`${theme === 'dark' ? 'block' : 'hidden'}`}><FaMoon onClick={() => setTheme('light')} title='Make Light Mode' className='text-xl text-prime'></FaMoon></span>
                                     <span className={`${theme === 'dark' ? 'hidden' : 'block'}`}><FaSun onClick={() => setTheme('dark')} title='Make Dark Mode' className='text-xl text-prime'></FaSun></span>
 
@@ -333,6 +343,16 @@ const Navbar = () => {
                                                         className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
                                                     >
                                                         Instructors
+                                                    </NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink
+                                                        to='/contact-us'
+                                                        aria-label='contact'
+                                                        title='contact'
+                                                        className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                                    >
+                                                        Contact
                                                     </NavLink>
                                                 </li>
                                                 <li>

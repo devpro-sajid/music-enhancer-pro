@@ -24,6 +24,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Payment from "../Pages/Dashboard/Student/Payments/Payment";
 import PaymentHistory from "../Pages/Dashboard/Student/PaymentHistory";
 import About from "../Pages/AboutUS/AboutPage/About";
+import ContactUs from "../Pages/ContactUs/ContactPage/ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: '/instructors',
         element: <Instructors></Instructors>
+      },
+      {
+        path: '/contact-us',
+        element: <ContactUs></ContactUs>
       },
       {
         path: 'login',
