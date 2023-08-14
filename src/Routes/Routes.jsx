@@ -23,6 +23,7 @@ import Instructors from "../Pages/Instructors/Instructors";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Payment from "../Pages/Dashboard/Student/Payments/Payment";
 import PaymentHistory from "../Pages/Dashboard/Student/PaymentHistory";
+import About from "../Pages/AboutUS/AboutPage/About";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: '/about',
+        element: <About></About>
       },
       {
         path: '/classes',

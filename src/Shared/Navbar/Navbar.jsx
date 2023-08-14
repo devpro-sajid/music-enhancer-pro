@@ -107,6 +107,16 @@ const Navbar = () => {
                                 </li>
                                 <li>
                                     <NavLink
+                                        to='/about'
+                                        aria-label='about'
+                                        title='about'
+                                        className={({ isActive }) => (isActive ? 'text-prime' : 'default')}
+                                    >
+                                        About
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
                                         to='/classes'
                                         aria-label='classes'
                                         title='classes'
@@ -293,6 +303,16 @@ const Navbar = () => {
                                                         className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
                                                     >
                                                         Home
+                                                    </NavLink>
+                                                </li>
+                                                <li>
+                                                    <NavLink
+                                                        to='/about'
+                                                        aria-label='about'
+                                                        title='about'
+                                                        className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                                                    >
+                                                        About
                                                     </NavLink>
                                                 </li>
                                                 <li>
